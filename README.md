@@ -36,3 +36,4 @@ Attribution-Share Alike 3.0 United States License: [http://creativecommons.org/l
 ## Warning ##
 
 > $ ./configure --with-recommended-packages=no --without-x --with-cairo --with-libpng --with-libtiff --with-jpeglib --enable-R-shlib
+> options(bitmapType='cairo')
