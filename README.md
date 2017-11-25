@@ -38,3 +38,9 @@ Attribution-Share Alike 3.0 United States License: [http://creativecommons.org/l
 > $ ./configure --with-recommended-packages=no --without-x --with-cairo --with-libpng --with-libtiff --with-jpeglib --enable-R-shlib
 
 > options(bitmapType='cairo')
+
+>sudo apt-get install gfortran
+
+>sudo apt-get install liblzma-dev
+
+>sudo apt-get install libcurl4-openssl-dev
