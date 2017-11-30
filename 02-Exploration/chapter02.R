@@ -245,31 +245,44 @@ data.file <- file.path('data', '01_heights_weights_genders.csv')
 heights.weights <- read.csv(data.file, header = TRUE, sep = ',')
 
 # Experiment with histograms.
-ggplot(heights.weights, aes(x = Height)) +
+height.plot <- ggplot(heights.weights, aes(x = Height)) +
   geom_histogram(binwidth = 1)
 
+ggsave(plot = height.plot,
+       filename = file.path(".", "heights.weights_1.pdf"),
+       width = 14,
+       height = 8.5)
 #
 # Snippet 21
 #
 
-ggplot(heights.weights, aes(x = Height)) +
+height.plot <-ggplot(heights.weights, aes(x = Height)) +
   geom_histogram(binwidth = 5)
-
+ggsave(plot = height.plot,
+       filename = file.path(".", "heights.weights_5.pdf"),
+       width = 14,
+       height = 8.5)
 #
 # Snippet 22
 #
 
-ggplot(heights.weights, aes(x = Height)) +
+height.plot <-ggplot(heights.weights, aes(x = Height)) +
   geom_histogram(binwidth = 0.01)
-
+ggsave(plot = height.plot,
+       filename = file.path(".", "heights.weights_001.pdf"),
+       width = 14,
+       height = 8.5)
 #
 # Snippet 23
 #
 
 # Experiment with kernel density estimates.
-ggplot(heights.weights, aes(x = Height)) +
+height.plot <-ggplot(heights.weights, aes(x = Height)) +
   geom_density()
-
+ggsave(plot = height.plot,
+       filename = file.path(".", "heights.weights_density.pdf"),
+       width = 14,
+       height = 8.5)
 #
 # Snippet 24
 #
