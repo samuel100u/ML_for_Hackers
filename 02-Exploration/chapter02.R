@@ -288,16 +288,23 @@ ggsave(plot = height.plot,
 #
 
 # Separate out heights and weights based on gender.
-ggplot(heights.weights, aes(x = Height, fill = Gender)) +
+height.plot <- ggplot(heights.weights, aes(x = Height, fill = Gender)) +
   geom_density()
-
+ggsave(plot = height.plot,
+       filename = file.path(".", "heights.weights_gender_density.pdf"),
+       width = 14,
+       height = 8.5)
 #
 # Snippet 25
 #
 
-ggplot(heights.weights, aes(x = Weight, fill = Gender)) +
+weight.plot <- ggplot(heights.weights, aes(x = Weight, fill = Gender)) +
   geom_density()
 
+ggsave(plot = weight.plot,
+       filename = file.path(".", "heights.weights_gender_density.pdf"),
+       width = 14,
+       height = 8.5)
 #
 # Snippet 26
 #
