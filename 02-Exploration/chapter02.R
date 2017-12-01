@@ -288,23 +288,16 @@ ggsave(plot = height.plot,
 #
 
 # Separate out heights and weights based on gender.
-height.plot <- ggplot(heights.weights, aes(x = Height, fill = Gender)) +
+ggplot(heights.weights, aes(x = Height, fill = Gender)) +
   geom_density()
-ggsave(plot = height.plot,
-       filename = file.path(".", "heights.weights_gender_density.pdf"),
-       width = 14,
-       height = 8.5)
+
 #
 # Snippet 25
 #
 
-weight.plot <- ggplot(heights.weights, aes(x = Weight, fill = Gender)) +
+ggplot(heights.weights, aes(x = Weight, fill = Gender)) +
   geom_density()
 
-ggsave(plot = weight.plot,
-       filename = file.path(".", "heights.weights_gender_density.pdf"),
-       width = 14,
-       height = 8.5)
 #
 # Snippet 26
 #
@@ -321,9 +314,12 @@ ggplot(heights.weights, aes(x = Weight, fill = Gender)) +
 # Experiment with random numbers from the normal distribution.
 m <- 0
 s <- 1
-ggplot(data.frame(X = rnorm(100000, m, s)), aes(x = X)) +
+random.plot <- ggplot(data.frame(X = rnorm(100000, m, s)), aes(x = X)) +
   geom_density()
-
+ggsave(plot = random.plot,
+       filename = file.path(".", "random_density.pdf"),
+       width = 14,
+       height = 8.5)
 #
 # Snippet 28
 #
