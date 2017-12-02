@@ -412,10 +412,11 @@ logit.plot<- ggplot(heights.weights, aes(x = Height, y = Weight)) +
   scale_alpha(guide = "none") + 
   scale_color_manual(values = c("Male" = "black", "Female" = "gray")) +
   theme_bw() +
-  stat_abline(intercept = -coef(logit.model)[1] / coef(logit.model)[2],
+  geom_abline(intercept = -coef(logit.model)[1] / coef(logit.model)[2],
               slope = - coef(logit.model)[3] / coef(logit.model)[2],
-              geom = 'abline',
+              stat = 'abline',
               color = 'black')
+
 ggsave(plot = logit.plot,
        filename = file.path(".", "logit.pdf"),
        width = 14,
