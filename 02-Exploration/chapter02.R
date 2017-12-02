@@ -407,7 +407,7 @@ logit.model <- glm(Male ~ Weight + Height,
                    data = heights.weights,
                    family = binomial(link = 'logit'))
 
-ggplot(heights.weights, aes(x = Height, y = Weight)) +
+logit.plot<- ggplot(heights.weights, aes(x = Height, y = Weight)) +
   geom_point(aes(color = Gender, alpha = 0.25)) +
   scale_alpha(guide = "none") + 
   scale_color_manual(values = c("Male" = "black", "Female" = "gray")) +
@@ -416,3 +416,7 @@ ggplot(heights.weights, aes(x = Height, y = Weight)) +
               slope = - coef(logit.model)[3] / coef(logit.model)[2],
               geom = 'abline',
               color = 'black')
+ggsave(plot = logit.plot,
+       filename = file.path(".", "logit.pdf"),
+       width = 14,
+       height = 8.5)
