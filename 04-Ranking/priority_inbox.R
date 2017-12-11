@@ -143,10 +143,10 @@ priority.train <- priority.df[1:(round(nrow(priority.df) / 2)), ]
 
 # The first step is to create rank weightings for all of the features.
 # We begin with the simpliest: who the email is from.
-
+priority.train$Date<-as.POSIXct(priority.train$Date)
 # Calculate the frequency of correspondence with all emailers in the training set
-from.weight <- melt(with(priority.train, table(From.EMail)), 
-                    value.name="Freq")
+from.weight <- ddply(priority.train, .(From.EMail), summarise, Freq=length(Subject))
+
 
 from.weight <- from.weight[with(from.weight, order(Freq)), ]
 
