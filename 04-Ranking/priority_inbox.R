@@ -251,6 +251,8 @@ thread.counts <- function(thread, email.df)
   freq <- length(thread.times)
   min.time <- min(thread.times)
   max.time <- max(thread.times)
+  min.time <- as.POSIXlt(min.time)
+  max.time <- as.POSIXlt(max.time)
   time.span <- as.numeric(difftime(max.time, min.time, units = "secs"))
   if(freq < 2)
   {
